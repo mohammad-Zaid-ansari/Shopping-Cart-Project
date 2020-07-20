@@ -1,0 +1,354 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* ----------- Nav Bar ------------- */
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 50px;
+	width: 100%;
+	background: white;
+
+	font-size: 1.5em;
+	position: sticky;
+	top: 0px;
+	z-index: 10;
+}
+
+.menu {
+	margin: 0 0.5em;
+	cursor: pointer;
+}
+
+.cart {
+	margin: 0 0.5em;
+	position: relative;
+	cursor: pointer;
+}
+
+.cart .count {
+	position: absolute;
+	top: -11px;
+	right: -10px;
+	background: rgba(194, 204, 103, 0.89);
+	padding: 0 4px;
+	border-radius: 30%;
+	font-size: 0.9em;
+	/*border: 2px solid blue;*/
+}
+
+/* ----------- Nav Bar Ends ------------- */
+
+/* ------------- Header Starts Here----------- */
+.header {
+	height: calc(100vh - 50px);
+	background: url(./images/hero-bcg.jpeg) center/cover no-repeat;
+	background-attachment: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header .home {
+	padding: 2em;
+	background-color: rgba(247, 247, 247, 0.77);
+	;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	/* width: 50%; */
+}
+
+.header .home h1 {
+	font-size: 1.5em;
+	font-weight: 400;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	margin-bottom: 1em;
+}
+
+.header .home .btn {
+	
+	background-color: rgba(203, 191, 191, 0.66);
+	outline: none;
+	border: 1px solid rgba(153, 135, 135, 0.66);
+	
+}
+
+.header .home .btn:hover {
+	background-color: rgba(247, 247, 247, 0.77);
+	color: black;
+}
+
+/* ------------- Header Ends Here----------- */
+
+/* ------------- Products Start Here----------- */
+.products {
+	display: flex;
+	justify-content: space-around;
+	width: 90vw;
+	margin: auto;
+	margin-top: 1.5em;
+	flex-wrap: wrap;
+}
+
+.products .single-product {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 1em;
+	min-width: 290px;
+}
+
+.products .image {
+	position: relative;
+}
+
+.products .image img {
+	width: 150px;
+	height: 100px;
+	transition: 1s;
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+	filter: contrast(1);
+	-webkit-filter: contrast(1);
+}
+
+.products .image img:hover {
+	opacity: 0.5;
+}
+
+.products .image h3 {
+	text-transform: capitalize;
+	cursor: pointer;
+	position: absolute;
+	bottom: 8px;
+	right: 0px;
+	background: #ffecec7d;
+	padding: 0.1em 0.2em;
+	width: 0;
+	opacity: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	transition: 2s;
+	-webkit-transition: 2s;
+	-moz-transition: 2s;
+	-ms-transition: 2s;
+	-o-transition: 2s;
+}
+
+.products .single-product .image:hover h3 {
+	width: 90%;
+	opacity: 1;
+}
+
+.products .image h3 i {
+	margin-right: 0.3em;
+}
+
+.products h2 {
+	font-size: 1.5em;
+	text-transform: capitalize;
+	letter-spacing: 3px;
+	margin: 0.5em 0;
+	font-weight: 400;
+}
+
+.products h4 {
+	font-size: 1em;
+}
+
+/* ------------- Products Ends Here----------- */
+
+
+/* ------- Cart Start ------- */
+.cart-sidebar {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 0;
+	height: 100%;
+	z-index:-1;
+	background: linear-gradient(35deg, gray, white);
+	display: flex;
+	justify-content: flex-start;
+	transition: 1.5s;
+	-webkit-transition: 1.5s;
+	-moz-transition: 1.5s;
+	-ms-transition: 1.5s;
+	-o-transition: 1.5s;
+	opacity: 0;
+	flex-direction: column;
+	white-space: nowrap;
+}
+
+.cart-sidebar .cart-items{
+	overflow-y: auto;
+	scrollbar-color: red;
+}
+
+.cart-sidebar .cart-items::-webkit-scrollbar{
+	width: 4px;
+	height: 3px;
+	
+}
+
+.cart-sidebar .cart-items::-webkit-scrollbar-thumb{
+	width: 5px;
+	height: 6px;
+	background: #22212138;
+    border-radius: 45%;
+}
+
+.cart-sidebar-open {
+	width: 20%;
+	opacity: 1;
+	z-index: 111;
+}
+
+.cart-sidebar::after {
+	content: "";
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: -q;
+	width: 80%;
+	height: 100%;
+	background-color: rgba(109, 59, 53, 0.294);
+
+}
+
+.cart-sidebar .head-close-cart h1 {
+	align-items: center;
+	text-transform: uppercase;
+	margin: 1em 0;
+	width: 80%;
+	margin: 1em auto;
+	margin-bottom: 0.5em;
+}
+
+.cart-sidebar .head-close-cart i {
+	position: absolute;
+	top: 5px;
+	left: 8px;
+	cursor: pointer;
+}
+
+.cart-sidebar .cart-items-parent {
+	display: grid;
+	grid-template-columns: 2fr 6fr 1fr;
+	grid-gap: 0.5em;
+	width: 90%;
+	margin: 0 auto;
+	justify-content: flex-start;
+	margin-bottom: 0.5em;
+}
+
+.cart-sidebar .cart-items-parent .cart-image {
+	width: 100%;
+	height: 91%;
+	align-self: center;
+}
+
+.cart-sidebar .cart-items-parent .cart-image img {
+	width: inherit;
+	height: inherit;
+}
+
+.cart-sidebar .cart-items-parent .title-remove {
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	text-transform: capitalize;
+	word-break: break-all;
+}
+
+.cart-sidebar .cart-items-parent .title-remove .price{
+	margin: 0.2em 0;
+}
+
+.cart-sidebar .cart-items-parent .arrows-amount {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.cart-sidebar .cart-end {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 1em;
+}
+
+.cart-sidebar .cart-end .total-amount{
+	margin-bottom: 0.5em;
+	letter-spacing: 2px;
+}
+
+.btn{
+	font-size: 1em;
+	text-transform: uppercase;
+	padding: 0.7em 1.2em;
+	letter-spacing: 3px;
+	background: none;
+	background-color: rgb(186, 186, 186);
+	outline: none;
+	border: 1px solid rgb(185, 168, 168);
+	transition: all 1.4s linear;
+	-webkit-transition: all 1.4s linear;
+	-moz-transition: all 1.4s linear;
+	-ms-transition: all 1.4s linear;
+	-o-transition: all 1.4s linear;
+	cursor: pointer;
+	font-weight: 800;
+	color: white;
+}
+
+.btn:hover{
+	background: transparent;
+	transform: scale(1.05,1.05);
+	-webkit-transform: scale(1.05,1.05);
+	-moz-transform: scale(1.05,1.05);
+	-ms-transform: scale(1.05,1.05);
+	-o-transform: scale(1.05,1.05);
+}
+
+@media only screen and (max-width:800px) {
+	.cart-sidebar {
+		width: 0;
+		width: 225px;
+	}
+
+	.cart-sidebar-open {
+		width: 225px;
+	}
+
+	.cart-sidebar::after {
+		width: calc(100% - 225px);
+	}
+}
+
+@media only screen and (max-width:300px) {
+	.cart-sidebar {
+		width: 0;
+		width: 100%;
+	}
+
+	.cart-sidebar-open {
+		width: 100%;
+	}
+
+	.cart-sidebar::after {
+		width: 0;
+	}
+
+	/* ------- Cart Start ------- */
