@@ -30,11 +30,15 @@
 	cursor: pointer;
 }
 
+.cart i{
+	font-size: 1.3em;
+}
+
 .cart .count {
 	position: absolute;
-	top: -11px;
-	right: -10px;
-	background: rgba(194, 204, 103, 0.89);
+	top: -8px;
+	right: -8px;
+	background: rgb(220, 156, 87);
 	padding: 0 4px;
 	border-radius: 30%;
 	font-size: 0.9em;
@@ -72,13 +76,13 @@
 	margin-bottom: 1em;
 }
 
-.header .home .btn {
+/* .header .home .btn {
 	
 	background-color: rgba(203, 191, 191, 0.66);
 	outline: none;
 	border: 1px solid rgba(153, 135, 135, 0.66);
 	
-}
+} */
 
 .header .home .btn:hover {
 	background-color: rgba(247, 247, 247, 0.77);
@@ -177,7 +181,7 @@
 	width: 0;
 	height: 100%;
 	z-index:-1;
-	background: linear-gradient(35deg, gray, white);
+	background: wheat;
 	display: flex;
 	justify-content: flex-start;
 	transition: 1.5s;
@@ -219,10 +223,10 @@
 	position: fixed;
 	left: 0;
 	top: 0;
-	z-index: -q;
+	z-index: -1;
 	width: 80%;
 	height: 100%;
-	background-color: rgba(109, 59, 53, 0.294);
+	background-color: #3f3f3b54;
 
 }
 
@@ -275,6 +279,11 @@
 	margin: 0.2em 0;
 }
 
+.cart-sidebar .cart-items-parent .title-remove .remove-item{
+	display: inline-block;
+	cursor: pointer;
+}
+
 .cart-sidebar .cart-items-parent .arrows-amount {
 	display: flex;
 	flex-direction: column;
@@ -300,14 +309,14 @@
 	padding: 0.7em 1.2em;
 	letter-spacing: 3px;
 	background: none;
-	background-color: rgb(186, 186, 186);
+	background-color: #e18f37c4;
 	outline: none;
-	border: 1px solid rgb(185, 168, 168);
-	transition: all 1.4s linear;
-	-webkit-transition: all 1.4s linear;
-	-moz-transition: all 1.4s linear;
-	-ms-transition: all 1.4s linear;
-	-o-transition: all 1.4s linear;
+	border: 1px solid #e18f37c4;
+	transition: all 0.8s linear;
+	-webkit-transition: all 0.8s linear;
+	-moz-transition: all 0.8s linear;
+	-ms-transition: all 0.8s linear;
+	-o-transition: all 0.8s linear;
 	cursor: pointer;
 	font-weight: 800;
 	color: white;
@@ -315,11 +324,11 @@
 
 .btn:hover{
 	background: transparent;
-	transform: scale(1.05,1.05);
-	-webkit-transform: scale(1.05,1.05);
-	-moz-transform: scale(1.05,1.05);
-	-ms-transform: scale(1.05,1.05);
-	-o-transform: scale(1.05,1.05);
+	transform: scale(1.01,1.01);
+	-webkit-transform: scale(1.01,1.01);
+	-moz-transform: scale(1.01,1.01);
+	-ms-transform: scale(1.01,1.01);
+	-o-transform: scale(1.01,1.01);
 }
 
 @media only screen and (max-width:800px) {
@@ -350,5 +359,5 @@
 	.cart-sidebar::after {
 		width: 0;
 	}
-
-	/* ------- Cart Start ------- */
+}
+	/* ------- Cart Ends ------- */
