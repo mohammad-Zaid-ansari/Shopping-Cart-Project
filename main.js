@@ -4,7 +4,7 @@ let cartSideBar = document.querySelector(".cart-sidebar")
 
 let cartIcon = document.querySelector('.cart');
 
-let cartClose = document.querySelector('.fa-times');
+let cartClose = document.querySelector('.head-close-cart .fa-times');
 
 let cartClearBtn = document.querySelector('.cart-clear-btn');
 
@@ -13,6 +13,14 @@ let totalCartAmount = document.querySelector('.total-amount')
 let count = document.querySelector('.count')
 
 let cartItemsContainer = document.querySelector('.cart-items')
+
+let menuContent = document.querySelector('.menu-content');
+
+let menu = document.querySelector('.menu')
+
+let closeSideMenuVar = document.querySelector('.menu-content .for-left-margin .menu-heading i');
+
+let sideMenuIcon = document.querySelector('.side-menu-icon')
 
 let cart = [];
 let DOMButtons = [];
@@ -75,8 +83,7 @@ class UIOfProducts {
     }
 
     buttonsFuntionality() {
-        DOMButtons = [...document.querySelectorAll('.cart-btn')]
-        console.log(DOMButtons);
+        DOMButtons = [...document.querySelectorAll('.cart-btn')];
         DOMButtons.forEach(button => {
             button.addEventListener('click', (event) => {
                 let id = event.currentTarget.dataset.id;
@@ -220,10 +227,23 @@ class UIOfProducts {
         this.setCartValues(cart);
         storage.saveInCartItems(cart);
         let singleButton = DOMButtons[id - 1];
-        singleButton.innerText = 'add to cart'
-        singleButton.setAttribute('disabled', false)
+        singleButton.innerText = 'add to cart';
+        singleButton.setAttribute('disabled', false);
 
     }
+
+// -----------Open/Close Menu Functionality----------
+
+    openSideMenu = function () {
+        menuContent.classList.add('open-side-menu');
+        sideMenuIcon.classList.remove('side-menu-icon-show');
+    }
+
+    closeSideMenu = function () {
+        menuContent.classList.remove('open-side-menu');
+        sideMenuIcon.classList.add('side-menu-icon-show');
+    }
+// -----------Open/Close Menu Functionality Ends----------
 
 }
 
@@ -252,15 +272,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     product1.getProducts().then(products => {
-        ui.showProducts(products)
-        storage.saveProducts(products)
-        ui.setUpUI()
-
-
+        ui.showProducts(products);
+        storage.saveProducts(products);
+        ui.setUpUI();
     }).then(() => {
-        ui.buttonsFuntionality()
-        ui.cartLogic()
-    })
+        ui.buttonsFuntionality();
+        ui.cartLogic();
+        // For Side Menu Bar
+        menu.addEventListener('click', ui.openSideMenu);
+        closeSideMenuVar.addEventListener('click', ui.closeSideMenu)
+
+        // For Side Menu Icon Bar
+        sideMenuIcon.addEventListener('click',ui.openSideMenu);
+    });
 
 
 })
+
